@@ -1,3 +1,5 @@
+# PLUGIN IS DEPRECATED AND UNMAINTAINED. ONLY COMPATIBLE WITH SLS 0.X.
+
 ![serverless_secrets_logo](https://cloud.githubusercontent.com/assets/1689118/15905519/23bf2208-2d83-11e6-96fb-7dc1edd359ee.png)
 
 *A no fuss way of getting secrets into your Serverless functions*
@@ -6,7 +8,7 @@
 
 So, what if you could put `_meta` in a secure place and share it around the team? That's what [Serverless meta sync](https://github.com/serverless/serverless-meta-sync) is for... but, then you still have secrets either floating around on developers machines, things could still be out of sync, you have to access control the files to proper machines in your pipeline... it's all not fun.
 
-**Solution:** The `_meta` folder is actually quite good at what it does, and in our humble opinion version controlling it in git is fine, if you had a way to still protect your secrets. So, that's why we are building Severless Secrets. Use [Credstash](https://github.com/fugue/credstash) to put / version / manage your secrets, and use magic strings in your `_meta` folder. That's it.
+**Solution:** The `_meta` folder is actually quite good at what it does, and in our humble opinion version controlling it in git is fine, if you had a way to still protect your secrets. So, that's why we are building Serverless Secrets. Use [Credstash](https://github.com/fugue/credstash) to put / version / manage your secrets, and use magic strings in your `_meta` folder. That's it.
 
 # Multi-Provider Support
 
