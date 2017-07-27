@@ -102,13 +102,17 @@ module.exports = function(S) {
       let _this = this;
       _this.project    = S.getProject();
       let func = _this.project.getFunction(evt.options.name);
+      let config = func.custom.secrets;
+      if (config.skip === true) {
+        SCli.log(`Skipping secrets handling for ${evt.options.name}`);
+        return BbPromise.resolve(evt);
+      }
 
       const handlerArr = func.handler.split('.'),
           handlerDir = path.dirname(func.handler),
           handlerFile = handlerArr[0].split('/').pop(),
           handlerMethod = handlerArr[1],
           envVarString = JSON.stringify(func.toObjectPopulated({stage: evt.options.stage, region: evt.options.region}).environment);
-
 
       //  // Super hack of building our own templating system
        let handlerTemplate = fs.readFileSync(path.join(__dirname, 'decryptors', func.getRuntime().getName(), '_serverless_handler.js'), 'utf8');
