@@ -103,7 +103,7 @@ module.exports = function(S) {
       _this.project    = S.getProject();
       let func = _this.project.getFunction(evt.options.name);
       let config = func.custom.secrets;
-      if (config.skip === true) {
+      if (config != null && config.skip === true) {
         SCli.log(`Skipping secrets handling for ${evt.options.name}`);
         return BbPromise.resolve(evt);
       }
